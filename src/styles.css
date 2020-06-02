@@ -1,0 +1,72 @@
+/* general styles */
+#root{
+    height: 100vh;
+    width: 100vw;
+}
+.largeTitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+}
+.subTitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+}
+
+/* .btnPrimary {
+    background: #FF9500;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    width: 136px;
+    height: 40px;
+    padding: 8px 24px;
+    text-transform: inherit;
+} */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    outline: none;
+    padding: 8px 24px;
+    background-color: #FF9500;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  
+  .button:hover, .button:active{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .button:disabled {
+    opacity: 0.5;
+    cursor: auto;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .button-white {
+    background-color: #FFFFFF;
+  }
+  
+  .button-span {
+    display: flex;
+    font-weight: 600;
+    color: #FFFFFF;
+    align-items: center;
+  }
+  
+  .button-span-white {
+    color: #FF9500;
+  }
+/* general styles */
+
+/* utils */
+
+/* utils */

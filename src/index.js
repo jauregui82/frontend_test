@@ -1,22 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Routes } from './components/Routes';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store';
+import './styles.css';
 
-// You don't have to use `fetch` btw, use whatever you want
-const getCounters = () => 
-  fetch('/api/v1/counter', { method: 'get' })
-    .then(res => res.json());
-
-const App = () => {
-  React.useEffect(() => {
-    getCounters().then(console.log, console.error);
-  }, []);
-
-  return (
-    <h1>Hello, Cornershop!</h1>
-  );
-};
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+const Root = (
+  <>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Routes />
+      </PersistGate>
+    </Provider>
+  </>
 );
+
+ReactDOM.render(Root, document.getElementById('root'));
