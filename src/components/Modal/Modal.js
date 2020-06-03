@@ -79,12 +79,6 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 8,
     }
   },
-  containerLoaderModal: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-100%, -100%)',
-  },
 }));
 
 
@@ -142,7 +136,7 @@ export const Modal = (props) => {
                   <Grid item xs={12}>
                     <span className={classes.textExample}>Give it a name. Creative block? See <span className={classes.textLink} onClick={()=>setExampleSelected(true)}> examples</span>.</span>
                     {loader &&
-                    (<div className={classes.containerLoaderModal}>
+                    (<div className={'containerLoader'}>
                       <Loader/>
                     </div>
                     )}

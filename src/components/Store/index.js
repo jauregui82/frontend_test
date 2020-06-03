@@ -14,7 +14,9 @@ import Loader from '../Loader/Loader';
 
 
 export const Store = (props) => {
-    const loader = useSelector(state => state.globals);
+    const loaderState = useSelector(state => state.globals.loader);
+    console.log('loaderState:', loaderState);
+    
     const dispatch = useDispatch();
     const model = new StoreModels(useSelector(state => state.globals));
     const [open, setOpen] = useState(false);
@@ -25,11 +27,13 @@ export const Store = (props) => {
 
     /*get*/
     const listDataCounter = async () => {
-        // dispatch(updateLoader(true));
+        dispatch(updateLoader(true));
         const data = await model.getData();
         console.log('data ===>>>',data);
         if (data) {
-            // dispatch(updateLoader(false));
+            setTimeout(() => {
+                dispatch(updateLoader(false));
+            }, 1000);
         }
         setDataCounter(data)
         console.log(data);
@@ -104,22 +108,28 @@ export const Store = (props) => {
                         <Search />
                     </Grid>
                     <Grid item style={{maxWidth: '570px', width: '100%', marginBottom: '90px'}}>
-                        <br />
-                        {dataCounter.map((item, i)=>{
-                           return (
-                           <div key={i}>
-                               <CounterCell 
-                                clase={verifyFindCounter(item.id)} 
-                                textCell={item.title} 
-                                count={item.count} 
-                                selectedCell={selectedCell} 
-                                handleCount={handleCount}
-                                idCounter={item.id}
-                            />
-                            </div>)
-                        })}
-                            {/* <CounterCell clase={'cellActive'} textCell={'xxxxxxxxxxxxxxxxx'} selectedCell={selectedCell}/> */}
-
+                    {!open && loaderState ? (
+                        <div className={'containerLoader'}>
+                            <Loader />
+                        </div>
+                    ):(
+                        <>
+                            <br />
+                            {dataCounter.map((item, i)=>{
+                            return (
+                            <div key={i}>
+                                <CounterCell 
+                                    clase={verifyFindCounter(item.id)} 
+                                    textCell={item.title} 
+                                    count={item.count} 
+                                    selectedCell={selectedCell} 
+                                    handleCount={handleCount}
+                                    idCounter={item.id}
+                                />
+                                </div>)
+                            })}
+                        </>
+                    )}
                     </Grid>
                 </Grid>
                 <ViewStoreAction openModal={openModal}/>
@@ -133,7 +143,7 @@ export const Store = (props) => {
                     setExampleSelected={setExampleSelected}
                     newCounter={newCounter}
                 />
-                {!open && !loader && <Loader />}
+                {/* {!open && !loader && <Loader />} */}
             </Layout>
         </>
     )
