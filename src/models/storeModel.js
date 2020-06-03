@@ -1,4 +1,4 @@
-import Model from './Model';
+import Model from "./Model";
 
 export default class StoreModels extends Model {
   constructor(globals) {
@@ -6,7 +6,7 @@ export default class StoreModels extends Model {
     this.headers = globals.headers.headers;
   }
 
-  getData = async (link='') => {
+  getData = async (link = "") => {
     let url = `${this.baseUrl}${link}`;
     let response = { data: {} };
     try {
@@ -17,7 +17,7 @@ export default class StoreModels extends Model {
     return response.data;
   };
 
- postData = async (data,link='') => {
+  postData = async (data, link = "") => {
     let url = `${this.baseUrl}${link}`;
     let response = { status: 400 };
     try {
@@ -26,8 +26,8 @@ export default class StoreModels extends Model {
       console.error(e);
     }
     return response;
-  }
-  deleteData = async (id) => {
+  };
+  deleteData = async id => {
     let url = `${this.baseUrl}${id}/`;
     let response = { status: 400 };
     try {
