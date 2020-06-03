@@ -1,7 +1,9 @@
 /* general styles */
 #root{
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  overflow: auto;
 }
 .largeTitle {
     font-style: normal;
@@ -68,5 +70,14 @@
 /* general styles */
 
 /* utils */
-
+.MuiDialog-paper{
+    border-radius: 16px!important;
+}
+.contentChips {
+  overflow: auto;
+  -ms-overflow-style: none!important;
+}
+.contentChips::-webkit-scrollbar {
+  display: none!important;
+}
 /* utils */

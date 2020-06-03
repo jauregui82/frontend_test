@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         minHeight: 67,
         boxShadow: 'none',
+        '&:hover': {
+            backgroundColor: 'rgba(248, 148, 5, 0.2)',
+        },
     },
     cellActive: {
         // padding: '2px 4px',
@@ -66,17 +69,17 @@ const useStyles = makeStyles((theme) => ({
 
 export const CounterCell = (props) => {
     const classes = useStyles();
-    const { textCell, clase, minNum, selectedCell, key }= props;
+    const { textCell, clase, selectedCell, count, handleCount, idCounter }= props;
   return (
     <Paper component="form" className={classes[clase]} >
         <span className={clase=== 'cellActive' ? classes.bgActive : ''}/>
-      <label className={classes.label} onClick={()=> selectedCell(key)}>{textCell}</label>
+      <label className={classes.label} onClick={()=> selectedCell(idCounter)}>{textCell}</label>
       <div className={classes.contentAction}>
-        <IconButton className={classes.iconButton} aria-label="menu">
-            <RemoveIcon color={minNum > 0 ? 'primary' : 'disabled'} />
+        <IconButton onClick={()=>{handleCount(idCounter, 'dec')}} disabled={count === 0 } className={classes.iconButton} aria-label="menu">
+            <RemoveIcon color={count > 0 ? 'primary' : 'disabled'} />
         </IconButton>
-        <p className={classes.numberActive}>2</p>
-        <IconButton className={classes.iconButton} aria-label="menu">
+        <p className={classes.numberActive}>{count}</p>
+        <IconButton onClick={()=>handleCount(idCounter, 'inc')} className={classes.iconButton} aria-label="menu">
             <AddIcon color='primary'/>
         </IconButton>
       </div>

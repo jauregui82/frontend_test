@@ -4,11 +4,9 @@ export default class StoreModels extends Model {
   constructor(globals) {
     super();
     this.headers = globals.headers.headers;
-    console.log('====>>>',this);
-    
   }
 
-  getData = async (link) => {
+  getData = async (link='') => {
     let url = `${this.baseUrl}${link}`;
     let response = { data: {} };
     try {
@@ -19,7 +17,7 @@ export default class StoreModels extends Model {
     return response.data;
   };
 
- postData = async (link, data) => {
+ postData = async (data,link='') => {
     let url = `${this.baseUrl}${link}`;
     let response = { status: 400 };
     try {
