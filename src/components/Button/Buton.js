@@ -6,7 +6,8 @@ import classNames from "classnames";
 const useStyles = makeStyles(theme => ({
   baseButton: {
     textTransform: "inherit",
-    width: 136,
+    width: "100%",
+    maxWidth: 136,
     height: 40,
     display: "flex",
     border: 0,
