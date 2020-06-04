@@ -80,7 +80,12 @@ export const CounterCell = props => {
   return (
     <Paper component="form" className={classes[clase]}>
       <span className={clase === "cellActive" ? classes.bgActive : ""} />
-      <label className={classes.label} onClick={() => selectedCell(idCounter)}>
+      <label
+        className={classes.label}
+        onClick={() => {
+          clase !== "cellActive" && selectedCell(idCounter);
+        }}
+      >
         {textCell}
       </label>
       <div className={classes.contentAction}>

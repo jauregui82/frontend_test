@@ -44,10 +44,12 @@ const useStyles = makeStyles(theme => ({
     }
   },
   btnSmallWhite: {
+    color: "#FF9500",
+    fontWeight: 600,
+    fontSize: 17,
     width: 74,
     height: 41,
-    color: "#fff",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#FFFFFF"
     // "&:hover": {
     //   boxShadow: "0 2px 2px rgba(0, 0, 0, 0.3)",
     //   backgroundColor: "rgba(255, 149, 0, 0.5)"

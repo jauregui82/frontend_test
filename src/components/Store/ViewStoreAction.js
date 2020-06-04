@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Grid, Divider } from "@material-ui/core";
 import { GeneralButton } from "../Button/Buton";
 import AddIcon from "@material-ui/icons/Add";
 import { ReactComponent as IconTrash } from "../../assets/IconTrash.svg";
 import { ReactComponent as IconCopy } from "../../assets/IconCopy.svg";
+import { Copy } from "../Copy/Copy";
 
 const useStyles = makeStyles(theme => ({
   footerContainer: {
@@ -29,7 +30,8 @@ const useStyles = makeStyles(theme => ({
 
 export const ViewStoreAction = props => {
   const classes = useStyles();
-  const { openModal, dataCounterSelected, deleteCounter } = props;
+  const [openCopy, setOpenCopy] = useState(false);
+  const { openModal, dataCounterSelected, deleteCounter, copySelected } = props;
 
   return (
     <>
@@ -44,19 +46,28 @@ export const ViewStoreAction = props => {
                     <GeneralButton
                       clase={"btnSmallWhite"}
                       action={deleteCounter}
-                      actionName={"add"}
+                      actionName={""}
                     >
                       <IconTrash />
                     </GeneralButton>
                   </Grid>
                   <Grid item>
-                    <GeneralButton
-                      clase={"btnSmallWhite"}
-                      action={openModal}
-                      actionName={""}
-                    >
-                      <IconCopy />
-                    </GeneralButton>
+                    <div style={{ position: "relative" }}>
+                      {openCopy && (
+                        <Copy
+                          dataCounterSelected={dataCounterSelected}
+                          copySelected={copySelected}
+                          setOpenCopy={setOpenCopy}
+                        />
+                      )}
+                      <GeneralButton
+                        clase={"btnSmallWhite"}
+                        action={setOpenCopy}
+                        actionName={openCopy ? false : true}
+                      >
+                        <IconCopy />
+                      </GeneralButton>
+                    </div>
                   </Grid>
                 </Grid>
               )}

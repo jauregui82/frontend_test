@@ -17,8 +17,6 @@ import { ViewRefresh } from "./ViewRefresh";
 
 export const Store = props => {
   const loaderState = useSelector(state => state.globals);
-  // console.log("loaderState:", loaderState);
-
   const dispatch = useDispatch();
   const model = new StoreModels(useSelector(state => state.globals));
   const [open, setOpen] = useState(false);
@@ -41,14 +39,10 @@ export const Store = props => {
   const listDataCounter = async (count = false) => {
     dispatch(!loaderState.loaderRefresh && updateLoader(true));
     const data = await model.getData();
-    // console.log("data ===>>>", Object.keys(data).length, data);
     if (data) {
       setDataCounter(data);
-      // updateDataSlected(data);
       lengthDataCounter(data);
-      // setTimeout(() => {
       dispatch(!loaderState.loaderRefresh && updateLoader(false));
-      // }, 1000);
     }
   };
 
@@ -67,7 +61,7 @@ export const Store = props => {
       dispatch(updateLoader(false));
     } else {
       dispatch(updateLoader(false));
-      console.log("activar alert fallido", result);
+      console.error("activar alert fallido", result);
     }
   };
   const handleCount = async (id, action) => {
@@ -79,7 +73,7 @@ export const Store = props => {
       dispatch(updateLoaderRefresh(false));
     } else {
       dispatch(updateLoaderRefresh(false));
-      console.log("activar alert fallido", response);
+      console.error("activar alert fallido", response);
     }
   };
   /*post*/
@@ -96,14 +90,11 @@ export const Store = props => {
     dataCounterSelected.map(item => {
       const data = { id: item.id };
       return _delete(data);
-      // return response;
-      // return console.log('preparado para borrar',item.id);
     });
   };
   /*delete*/
 
   const lengthDataCounter = data => {
-    // console.log(data);
     let titleItems = data.length;
     let countItems = 0;
     data.length > 0 &&
@@ -127,7 +118,6 @@ export const Store = props => {
     ]);
   };
 
-
   const verifyFindCounter = id => {
     const dataSelected = dataCounterSelected.find(item => {
       return item.id === id;
@@ -143,10 +133,20 @@ export const Store = props => {
     setOpen(false);
     setExampleSelected(false);
   };
-  const actionModalSave = () => {
-    console.log("hola");
+  const handleDataForCopy = () => {
+    const text = dataCounterSelected
+      .map(c => `${c.count} X ${c.title}`)
+      .join("\n");
+    return text;
   };
-
+  const copySelected = () => {
+    var aux = document.createElement("input");
+    aux.setAttribute("value", handleDataForCopy());
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+  };
   return (
     <>
       <Layout>
@@ -166,7 +166,6 @@ export const Store = props => {
           direction="column"
           justify="space-around"
           alignItems="center"
-          // style={{ height: "100%" }}
           className={Object.keys(dataCounter).length === 0 ? "height-100" : ""}
         >
           {Object.keys(dataCounter).length > 0 && (
@@ -213,8 +212,8 @@ export const Store = props => {
                       <p className="largeTitle"> No counters yet</p>
                       <p className="subTitle">
                         <span>
-                          “When I started counting my blessings, my whole life
-                          turned around.” —Willie Nelson
+                          “When I started counting my blessings, <br /> my whole
+                          life life turned around.” <br /> —Willie Nelson
                         </span>
                       </p>
                     </Grid>
@@ -247,11 +246,11 @@ export const Store = props => {
           dataCounterSelected={dataCounterSelected}
           setDataCounterSelected={setDataCounterSelected}
           deleteCounter={deleteCounter}
+          copySelected={copySelected}
         />
         <Modal
           handleClose={handleClose}
           open={open}
-          actionModalSave={actionModalSave}
           inputCupsSelected={inputCupsSelected}
           setInputCupsSelected={setInputCupsSelected}
           exampleSelected={exampleSelected}
