@@ -27,14 +27,24 @@ export default class StoreModels extends Model {
     }
     return response;
   };
-  deleteData = async id => {
-    let url = `${this.baseUrl}${id}/`;
+  deleteData = async data => {
+    let url = `${this.baseUrl}`;
     let response = { status: 400 };
     try {
-      response = await this.delete(url, this.headers);
-    } catch (e) {
-      console.error(e);
+      response = await this.deleteBody(url, data, this.headers)
+    } catch (error) {
+      console.error(error);
     }
     return response;
   };
+  // deleteData = async id => {
+  //   let url = `${this.baseUrl}/`;
+  //   let response = { status: 400 };
+  //   try {
+  //     response = await this.delete(url, this.headers);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  //   return response;
+  // };
 } //End class

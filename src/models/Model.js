@@ -62,6 +62,19 @@ class Model {
         .then(response => resolve(response))
         .catch(error => reject(error));
     });
+
+  deleteBody = (url, data, headers) => {
+    return fetch(url, {
+      method: "DELETE",
+      body: JSON.stringify(data),
+      headers
+    })
+      .then(res => res.json())
+      .catch(error => console.error("Error:", error))
+      .then(response => {
+        return response;
+      });
+  };
 } // End class
 
 export default Model;

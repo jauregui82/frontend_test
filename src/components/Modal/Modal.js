@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
@@ -95,9 +95,10 @@ export const Modal = props => {
     setInputCupsSelected,
     exampleSelected,
     setExampleSelected,
-    newCounter
+    newCounter,
+    valueTextModalAdd,
+    setValueTextModalAdd
   } = props;
-  const [valueText, setValueText] = useState("");
   const loader = useSelector(state => state.globals.loader);
 
   return (
@@ -131,9 +132,8 @@ export const Modal = props => {
                     : "btnSaveModalInactive"
                 }
                 action={newCounter}
-                actionName={valueText}
+                actionName={valueTextModalAdd}
               >
-                {" "}
                 Save
               </GeneralButton>
             )}
@@ -141,7 +141,7 @@ export const Modal = props => {
         </AppBar>
         <div style={{ padding: "1rem", minHeight: 500 }}>
           {exampleSelected ? (
-            <Example />
+            <Example newCounter={newCounter} />
           ) : (
             <>
               <Grid
@@ -156,28 +156,23 @@ export const Modal = props => {
                   xs={12}
                   style={{ width: "100%", position: "relative" }}
                 >
-                  <form
-                    onSubmit={e => {
-                      e.preventDefault();
-                      newCounter(valueText);
-                    }}
-                  >
+                  <div>
                     <TextField
-                      value={valueText}
-                      onChange={e => setValueText(e.target.value)}
+                      value={valueTextModalAdd}
+                      onChange={e => setValueTextModalAdd(e.target.value)}
                       className={classes.inputCups}
                       placeholder="Cups of coffee"
                       variant="outlined"
                       onFocus={() => setInputCupsSelected(true)}
                       onBlur={() =>
                         setInputCupsSelected(
-                          valueText.length === 0 && inputCupsSelected
+                          valueTextModalAdd.length === 0 && inputCupsSelected
                             ? false
                             : true
                         )
                       }
                     />
-                  </form>
+                  </div>
                 </Grid>
                 <Grid item xs={12}>
                   <span className={classes.textExample}>
@@ -186,7 +181,6 @@ export const Modal = props => {
                       className={classes.textLink}
                       onClick={() => setExampleSelected(true)}
                     >
-                      {" "}
                       examples
                     </span>
                     .

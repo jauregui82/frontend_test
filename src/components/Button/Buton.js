@@ -43,6 +43,16 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "rgba(255, 149, 0, 0.5)"
     }
   },
+  btnSmallWhite: {
+    width: 74,
+    height: 41,
+    color: "#fff",
+    backgroundColor: "#FFFFFF",
+    // "&:hover": {
+    //   boxShadow: "0 2px 2px rgba(0, 0, 0, 0.3)",
+    //   backgroundColor: "rgba(255, 149, 0, 0.5)"
+    // }
+  },
   btnSaveModalInactive: {
     width: 86,
     height: 40,
