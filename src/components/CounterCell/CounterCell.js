@@ -8,10 +8,8 @@ import classNames from "classnames";
 
 const useStyles = makeStyles(theme => ({
   cell: {
-    // padding: '2px 4px',
     display: "flex",
     alignItems: "center",
-    // maxWidth: 570,
     width: "100%",
     minHeight: 67,
     boxShadow: "none",
@@ -20,10 +18,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   cellActive: {
-    // padding: '2px 4px',
     display: "flex",
     alignItems: "center",
-    // maxWidth: 570,
     width: "100%",
     minHeight: 67,
     boxShadow: "none",
@@ -49,12 +45,10 @@ const useStyles = makeStyles(theme => ({
   label: {
     fontSize: 17,
     letterSpacing: "0.02em",
-    // marginLeft: theme.spacing(1),
     flex: 1,
     padding: "23px 0px 23px 24px",
     cursor: "pointer",
     zIndex: 1
-    // height: 67,
   },
   iconButton: {
     padding: 10

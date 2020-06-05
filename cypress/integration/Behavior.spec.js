@@ -1,10 +1,9 @@
+/* eslint-disable no-undef */
 describe("Behavioral test", () => {
   it("Enter website", () => {
     cy.visit("http://localhost:3000/");
     cy.get(".MuiButtonBase-root").click();
-    // cy.wait(500);
     cy.get(".loader > span");
-    // cy.get('.subTitle > span').should("contain", "—Willie Nelson")
   });
 
   it("Forcedd new", () => {

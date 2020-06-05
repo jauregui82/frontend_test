@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
 
 export const Home = props => {
   const classes = useStyles();
-  // console.log(props);
   return (
     <>
       <Layout>

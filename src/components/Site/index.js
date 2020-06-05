@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import {ViewStore} from './ViewStore';
 import { Layout } from "../base/layout";
 import { Search } from "../Shearch/Search";
 import { Grid } from "@material-ui/core";

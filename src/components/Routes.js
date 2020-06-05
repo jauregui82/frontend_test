@@ -1,8 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// App Components
-// import { connect } from 'react-redux';
-//Theme
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { mainTheme } from "../MuiTheme";
@@ -27,10 +24,3 @@ export const Routes = props => {
     </ThemeProvider>
   );
 };
-
-// const mapStateToProps = (state) => ({
-//   globals: state.globals,
-// });
-// const wrapper = connect(mapStateToProps);
-
-// export default wrapper(Routes);

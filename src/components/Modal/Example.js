@@ -60,10 +60,6 @@ const data = [
 
 export const Example = props => {
   const classes = useStyles();
-  //   const title = (key) => {
-
-  //   }
-
   return (
     <div style={{ padding: "1rem" }}>
       <span className={classes.textExample}>

@@ -50,10 +50,6 @@ const useStyles = makeStyles(theme => ({
     width: 74,
     height: 41,
     backgroundColor: "#FFFFFF"
-    // "&:hover": {
-    //   boxShadow: "0 2px 2px rgba(0, 0, 0, 0.3)",
-    //   backgroundColor: "rgba(255, 149, 0, 0.5)"
-    // }
   },
   btnSaveModalInactive: {
     width: 86,
@@ -110,16 +106,6 @@ const useStyles = makeStyles(theme => ({
     boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
     borderRadius: 8
   }
-  //   .button-span {
-  //     display: 'flex',
-  //     fontWeight: 600,
-  //     color: '#FFFFFF',
-  //     alignItems: 'center',
-  //   }
-
-  //   .button-span-white {
-  //     color: '#FF9500',
-  //   }
 }));
 
 export const GeneralButton = props => {
