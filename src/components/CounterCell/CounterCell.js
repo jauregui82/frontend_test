@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import RemoveIcon from "@material-ui/icons/Remove";
 import AddIcon from "@material-ui/icons/Add";
+import classNames from "classnames";
 
 const useStyles = makeStyles(theme => ({
   cell: {
@@ -77,8 +78,11 @@ export const CounterCell = props => {
     handleCount,
     idCounter
   } = props;
+  const btnInc = classNames(classes.iconButton, "btnInc");
+  const btnDec = classNames(classes.iconButton, "btnDec");
+  const btnContent = classNames(classes[clase], "btnContents");
   return (
-    <Paper component="form" className={classes[clase]}>
+    <Paper component="form" className={btnContent}>
       <span className={clase === "cellActive" ? classes.bgActive : ""} />
       <label
         className={classes.label}
@@ -94,7 +98,7 @@ export const CounterCell = props => {
             handleCount(idCounter, textCell, "dec");
           }}
           disabled={count === 0}
-          className={classes.iconButton}
+          className={btnDec}
           aria-label="menu"
         >
           <RemoveIcon color={count > 0 ? "primary" : "disabled"} />
@@ -102,7 +106,7 @@ export const CounterCell = props => {
         <p className={classes.numberActive}>{count}</p>
         <IconButton
           onClick={() => handleCount(idCounter, textCell, "inc")}
-          className={classes.iconButton}
+          className={btnInc}
           aria-label="menu"
         >
           <AddIcon color="primary" />

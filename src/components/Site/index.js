@@ -82,6 +82,7 @@ export const Site = props => {
     } else {
       dispatch(updateLoader(false));
       setOpen(false);
+      setValueTextModalAdd("");
       const title = `Couldn’t create counter`;
       handleAlerErrorAddCountOrDelete("none", title);
     }
@@ -89,13 +90,13 @@ export const Site = props => {
   const handleCount = async (id, text, action) => {
     dispatch(updateLoaderRefresh(true));
     const data = { id };
-    const response = await model.postData(data, data);
+    const response = await model.postData(data, action);
     if (response.status === 200) {
       listDataCounter("count");
       dispatch(updateLoaderRefresh(false));
     } else {
       dispatch(updateLoaderRefresh(false));
-      const title = `Couldn’t update “Apples eaten” to 1`;
+      const title = `Couldn’t update ${text} to 1`;
       handleAlerErrorAddCountOrDelete("handleCount", title, id, action, text);
     }
   };
@@ -212,6 +213,7 @@ export const Site = props => {
   const handleClose = () => {
     setOpen(false);
     setExampleSelected(false);
+    setValueTextModalAdd("");
   };
   const handleDataForCopy = () => {
     const text = dataCounterSelected
@@ -335,7 +337,7 @@ export const Site = props => {
                     <br />
                     {dataCounter.map((item, i) => {
                       return (
-                        <div key={i}>
+                        <div key={i} id={"counters"}>
                           <CounterCell
                             clase={verifyFindCounter(item.id)}
                             textCell={item.title}

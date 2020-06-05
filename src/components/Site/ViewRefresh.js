@@ -64,6 +64,7 @@ export const ViewRefresh = props => {
             </span>
             &nbsp;
             <IconBlack
+              id={"refreshCuenterSelected"}
               className={classes.IconBlack}
               onClick={() => setDataCounterSelected([])}
             />
