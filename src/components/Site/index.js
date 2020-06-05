@@ -81,7 +81,7 @@ export const Site = props => {
       dispatch(updateLoader(false));
     } else {
       dispatch(updateLoader(false));
-      console.error("activar alert fallido", result);
+      setOpen(false);
       const title = `Couldn’t create counter`;
       handleAlerErrorAddCountOrDelete("none", title);
     }
@@ -89,7 +89,7 @@ export const Site = props => {
   const handleCount = async (id, text, action) => {
     dispatch(updateLoaderRefresh(true));
     const data = { id };
-    const response = await model.postData(data, 111);
+    const response = await model.postData(data, data);
     if (response.status === 200) {
       listDataCounter("count");
       dispatch(updateLoaderRefresh(false));
