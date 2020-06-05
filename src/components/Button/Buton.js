@@ -74,6 +74,41 @@ const useStyles = makeStyles(theme => ({
       boxShadow: "0 2px 2px rgba(0, 0, 0, 0.3)",
       backgroundColor: "rgba(255, 149, 0, 0.5)"
     }
+  },
+  btnAlertCancel: {
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 17,
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center",
+    color: "#FFFFFF"
+  },
+  btnAlertDelete: {
+    color: "#FF3B30",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 17,
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid rgba(0, 0, 0, 0.01)",
+    boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
+    borderRadius: 8
+  },
+  btnAlertErrorCancel: {
+    color: "#FF9500",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: 17,
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid rgba(0, 0, 0, 0.01)",
+    boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
+    borderRadius: 8
   }
   //   .button-span {
   //     display: 'flex',

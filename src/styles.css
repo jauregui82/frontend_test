@@ -120,6 +120,16 @@
   padding-left: 8px;
 }
 
+.no-results {
+  font-weight: 500;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #888B90;
+}
+
 /* general styles */
 
 /* utils */

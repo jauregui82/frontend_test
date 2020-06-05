@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
@@ -23,8 +23,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     border: "solid 1px #f89405",
     boxShadow: "none"
-    // minWidth: 300,
-    // maxWidth: 379,
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -40,11 +38,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Search = () => {
+export const Search = props => {
   const classes = useStyles();
-  const [selected, setSelected] = useState(false);
-  // const changeSelected = () => {};
-
+  const {
+    selected,
+    setSelected,
+    handleChangeSearch,
+    handleClearSearch,
+    value,
+    setValue
+  } = props;
+  const handleAction = () => {
+    handleClearSearch();
+    setValue("");
+    setSelected(false);
+  };
   return (
     <>
       <Grid container spacing={1} alignItems="center">
@@ -57,11 +65,15 @@ export const Search = () => {
               <SearchIcon />
             </IconButton>
             <InputBase
+              value={value}
               className={classes.input}
               placeholder="Search Counters"
               inputProps={{ "aria-label": "search counters" }}
               onFocus={() => setSelected(true)}
-              // onBlur={() => setSelected(false)}
+              onChange={e => {
+                setValue(e.target.value);
+                handleChangeSearch(e.target.value);
+              }}
             />
           </Paper>
         </Grid>
@@ -70,8 +82,8 @@ export const Search = () => {
             <GeneralButton
               clase={"btnWhite"}
               color={""}
-              action={setSelected}
-              actionName={false}
+              action={handleAction}
+              actionName={""}
             >
               Cancel
             </GeneralButton>

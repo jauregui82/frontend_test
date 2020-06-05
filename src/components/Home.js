@@ -37,7 +37,7 @@ export const Home = props => {
             </p>
           </Grid>
           <Grid item>
-            <Link to={"/store"} style={{ textDecoration: "none" }}>
+            <Link to={"/site"} style={{ textDecoration: "none" }}>
               <GeneralButton> Get started </GeneralButton>
             </Link>
           </Grid>

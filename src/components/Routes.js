@@ -7,7 +7,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { mainTheme } from "../MuiTheme";
 import { Home } from "./Home";
-import { Store } from "./Store";
+import { Site } from "./Site";
 //Style theme
 const theme = createMuiTheme(mainTheme);
 /**
@@ -20,7 +20,7 @@ export const Routes = props => {
         <>
           <Switch>
             <Route key={0} path="/" component={Home} exact />
-            <Route path="/store" component={Store} />
+            <Route path="/site" component={Site} />
           </Switch>
         </>
       </BrowserRouter>

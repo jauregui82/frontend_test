@@ -31,9 +31,10 @@ export default class StoreModels extends Model {
     let url = `${this.baseUrl}`;
     let response = { status: 400 };
     try {
-      response = await this.deleteBody(url, data, this.headers)
+      response = await this.deleteBody(url, data, this.headers);
     } catch (error) {
       console.error(error);
+      return response;
     }
     return response;
   };

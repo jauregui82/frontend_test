@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Grid, Divider } from "@material-ui/core";
 import { GeneralButton } from "../Button/Buton";
@@ -6,6 +6,8 @@ import AddIcon from "@material-ui/icons/Add";
 import { ReactComponent as IconTrash } from "../../assets/IconTrash.svg";
 import { ReactComponent as IconCopy } from "../../assets/IconCopy.svg";
 import { Copy } from "../Copy/Copy";
+import { useSelector, useDispatch } from "react-redux";
+import { modalCopy } from "../../redux/action/globalsActions";
 
 const useStyles = makeStyles(theme => ({
   footerContainer: {
@@ -30,9 +32,11 @@ const useStyles = makeStyles(theme => ({
 
 export const ViewStoreAction = props => {
   const classes = useStyles();
-  const [openCopy, setOpenCopy] = useState(false);
   const { openModal, dataCounterSelected, deleteCounter, copySelected } = props;
-
+  const globals = useSelector(state => state.globals);
+  const dispatch = useDispatch();
+  const openCopy = globals.modalCopy;
+  const setOpenCopy = show => dispatch(modalCopy(show));
   return (
     <>
       <div className={classes.footerContainer}>

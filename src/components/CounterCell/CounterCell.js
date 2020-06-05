@@ -91,7 +91,7 @@ export const CounterCell = props => {
       <div className={classes.contentAction}>
         <IconButton
           onClick={() => {
-            handleCount(idCounter, "dec");
+            handleCount(idCounter, textCell, "dec");
           }}
           disabled={count === 0}
           className={classes.iconButton}
@@ -101,7 +101,7 @@ export const CounterCell = props => {
         </IconButton>
         <p className={classes.numberActive}>{count}</p>
         <IconButton
-          onClick={() => handleCount(idCounter, "inc")}
+          onClick={() => handleCount(idCounter, textCell, "inc")}
           className={classes.iconButton}
           aria-label="menu"
         >
