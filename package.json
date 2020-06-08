@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"node server/index.js\"",
     "test": "cypress run",
-    "cypress":"cypress open"
+    "cypress": "cypress open"
   },
   "author": "Cornershop",
   "license": "ISC",
