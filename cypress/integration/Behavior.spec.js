@@ -3,10 +3,10 @@ describe("Behavioral test", () => {
   it("Enter website", () => {
     cy.visit("http://localhost:3000/");
     cy.get(".MuiButtonBase-root").click();
-    cy.get(".loader > span");
+    // cy.get(".loader > span");
   });
 
-  it("Forcedd new", () => {
+  it("Forcedd error new", () => {
     cy.get(":nth-child(2) > .MuiButtonBase-root").click();
     cy.get(".MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input")
       .click()
@@ -43,7 +43,7 @@ describe("Behavioral test", () => {
     cy.get(".makeStyles-textLink-27").click();
     cy.get(":nth-child(4) > .MuiChip-label").click();
   });
-  it("+ 3 counter an error", () => {
+  it("+ 3 counter and error", () => {
     cy.get(".btnInc")
       .first()
       .click();
@@ -139,9 +139,7 @@ describe("Behavioral test", () => {
     cy.get(
       ".MuiDialogContent-root > .MuiGrid-container > :nth-child(1) > .MuiButtonBase-root"
     ).click();
-    cy.get("div#counters")
-      .first()
-      .click();
+    cy.wait(500);
     cy.get(".MuiGrid-container > :nth-child(1) > .MuiButtonBase-root").click();
     cy.get(
       ".MuiDialogContent-root > .MuiGrid-container > :nth-child(2) > .MuiButtonBase-root"

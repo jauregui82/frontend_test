@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: 67,
     boxShadow: "none",
     "&:hover": {
-      backgroundColor: "rgba(248, 148, 5, 0.2)"
+      backgroundColor: "rgba(248, 148, 5, 0.06)"
     }
   },
   cellActive: {
@@ -81,7 +81,8 @@ export const CounterCell = props => {
       <label
         className={classes.label}
         onClick={() => {
-          clase !== "cellActive" && selectedCell(idCounter);
+          // clase !== "cellActive" && selectedCell(idCounter);
+          selectedCell(idCounter);
         }}
       >
         {textCell}
